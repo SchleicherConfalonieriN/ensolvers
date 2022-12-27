@@ -4,14 +4,13 @@ import cors from 'cors';
 import db from './db/db.js';
 
 
-// routes import
-//import apiRouter from './routes/api.js';
+//routes import
+import apiRouter from './routes/api.js';
 
 const app = express()
-
 app.use(cors());
 app.use(express.json());
-//app.use('/api',apiRouter);
+app.use('/api',apiRouter);
 
 try {
     await db.authenticate()
