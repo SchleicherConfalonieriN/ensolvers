@@ -20,7 +20,7 @@ export const getAll = async (req,res) =>{
 
 //register
 
-export const creater= async (req,res)=>{
+export const create= async (req,res)=>{
     try {
         await note_categoryModel.create(req.body)
         res.json({"message":"note_category registrada correctamente"})
