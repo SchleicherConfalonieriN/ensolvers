@@ -17,7 +17,7 @@ export const getAll = async (req,res) =>{
 
 //register
 
-export const create= async (req,res)=>{
+export const create = async (req,res)=>{
     try {
         await categoryModel.create(req.body)
         res.json({"message":"registrado"})
