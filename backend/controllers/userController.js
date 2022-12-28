@@ -13,8 +13,7 @@ const CreateToken = (user) => {
     };
 
     const res = {
-        token: jwt.encode(payload,'frase secreta'),
-        rol: user.Type
+        token: jwt.encode(payload,'frase secreta')
     }
     return res ;
 }
@@ -35,8 +34,8 @@ export const Register= async (req,res)=>{
 
 export const Login = async (req,res)=>{
     const user = await userModel.findOne({where:{
-        Email: req.body.Email,
-        Password: req.body.Password
+        email: req.body.email,
+        password: req.body.password
     }})
     if (user){
         res.json(CreateToken(user));
