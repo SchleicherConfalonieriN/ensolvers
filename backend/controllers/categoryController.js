@@ -19,8 +19,13 @@ export const getAll = async (req,res) =>{
 
 export const create = async (req,res)=>{
     try {
-        await categoryModel.create(req.body)
-        res.json({"message":"registrado"})
+    const all = req.body.category
+    all.forEach(c => 
+        {
+         categoryModel.findOrCreate({
+                where:{title:c},c
+            })
+        });
     } catch (error) {
         res.json({message:error.message})
     }
