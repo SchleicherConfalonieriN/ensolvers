@@ -1,18 +1,29 @@
-import react from 'react'
 import {useState} from 'react'
 import axios from 'axios'
-
+import {AiFillEdit,AiFillDelete} from 'react-icons/ai';
 const URL ='http://localhost:8000/api/note/create';
+const URL1 ='http://localhost:8000/api/category/create';
 
 const CreateNote = () =>{
         const [title, setTitle] = useState("")
         const [description,setDescription] = useState("")
+        const [cat, setCat] =useState("")
         const [category,setCategory] = useState([])
+
     
 
     const create = async (e) =>{
         e.preventDefault()
-        axios.post(URL,{title:title,description:description,category:category},
+        axios.post(URL,{title:title,description:description},
+            {
+            headers: {
+                'user-token': localStorage.getItem("apiData")
+                }
+            }
+        ).then(res => {console.log(res)})
+
+
+        axios.post(URL1,{category:category},
             {
             headers: {
                 'user-token': localStorage.getItem("apiData")
@@ -22,6 +33,15 @@ const CreateNote = () =>{
         //.then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
     
     }
+
+
+    
+    const addCategory = x =>{
+       setCategory([...category,cat])
+       setCat("")
+        //.then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
+    }
+
 
     return (
         <div id = "create_note">
@@ -33,14 +53,18 @@ const CreateNote = () =>{
                 <input type="text" valie={description}   onChange={(e) => setDescription(e.target.value)}></input>
 
                 <div>
-                    LISTA DE CATEGORIAS
+               {category.map((mov,index) =>
 
-                    <button>agregar Categoria</button>
-                </div>
-
-                <label>Category</label>
-                <input type="text" value={category} onChange ={(e) => setCategory(e.target.value)}></input>
-
+                        <tr>
+                        <th className='Content' key={index}>{mov}</th>
+                        <th className='Content' key={index}><AiFillDelete/></th>
+                        </tr>
+               )
+               }
+            </div>
+                <input type="text" value={cat} onChange={(e) => setCat(e.target.value)}></input>
+                <div onClick={addCategory}>AGREGAR</div>
+              
                 <button>Register</button>
                 <button>Cancelar</button>
             </form>

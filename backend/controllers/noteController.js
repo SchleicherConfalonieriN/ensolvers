@@ -6,7 +6,7 @@ import noteModel from "../models/noteModel.js"
 
 export const getAll = async (req,res) =>{
     try{
-        const note = await noteModel.indAll({
+        const note = await noteModel.findAll({
             where:{ 
                 id_user: req.userId}
         }); 

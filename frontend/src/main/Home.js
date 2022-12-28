@@ -2,13 +2,15 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Note from '../components/Note'
 
+const URL ='http://localhost:8000/api/note/';
 
 const Home = () =>{
 
     const[notes, setNotes] = useState([])
     useEffect (  () => {
-    getnote()
+    getNotes()
     },[])
 
 const getNotes = async () =>{
@@ -41,21 +43,15 @@ return (
     <div className="ListContainer">
     <h4>Listado de notes</h4>
     <tr className='ListTitle'>
-    <th>Nota</th>
-    <th>nota</th>
-    <th>nota</th>
-    <th>nota</th>
-    <th></th>
+    
+    <th>intento</th>
     </tr>
 
-    {note.map((mov,index) =>
+    {notes.map((mov,index) =>
     <tr>
-    <th className='Content' key={index}></th>
-    <th className='Content' key={index}></th>
-    <th className='Content' key={index}></th>
-    <th className='Content' key={index}></th>
-    <th><Link><h4>Edit</h4></Link></th>
-    <th><button onClick={()=>deleteNote(mov.id)}>X</button></th>
+    <th>
+      <Note/>
+      </th>
     </tr>
     )
     }
