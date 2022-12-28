@@ -16,7 +16,7 @@ const Login = () => {
         .then((res) => {  
             console.log(res)   
             localStorage.setItem("apiData",res.data.token)
-            localStorage.setItem("rol",res.data.rol)
+            
       })//.then(window.location.assign('http://localhost:3000/home'));
     }
 
