@@ -3,7 +3,7 @@ import axios from "axios";
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
 
-
+const URL ='http://localhost:8000/api/user/register';
 
 const Register = () => {
   
@@ -15,8 +15,9 @@ const Register = () => {
     const create = async (e) =>{
         e.preventDefault()
        
-        axios.post(URL,{name:name,lastname:lastname,email:email, password:password})
-        .then(window.location.assign('http://localhost:3000/login'));
+        const res = await axios.post(URL,{name:name,lastname:lastname,email:email, password:password})
+        .then((res)=> console.log(res))
+        //.then(window.location.assign('http://localhost:3000/login'));
 
     }
 

@@ -9,7 +9,7 @@ const Note = (props) =>{
                 <th>imagen</th>
                 <th>inforacion</th>
                 <th>opcion eliminar</th>
-                <ht>opcion editar</ht>
+                <th>opcion editar</th>
             </tr>
         </div>
     )
