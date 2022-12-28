@@ -22,7 +22,12 @@ export const getAll = async (req,res) =>{
 
 export const create = async (req,res)=>{
     try {
-        await noteModel.create(req.body)
+        await noteModel.create({
+           title : req.body.title,
+           description: req.body.description,
+           id_user: req.userId,
+           status:0
+        })
         res.json({"message":"note registrada correctamente"})
     } catch (error) {
         res.json({message:error.message})
