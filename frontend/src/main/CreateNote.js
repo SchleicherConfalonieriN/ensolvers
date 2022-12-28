@@ -2,7 +2,7 @@ import react from 'react'
 import {useState} from 'react'
 import axios from 'axios'
 
-
+const URL ='http://localhost:8000/api/note/create';
 
 const CreateNote = () =>{
         const [title, setTitle] = useState("")
@@ -12,18 +12,19 @@ const CreateNote = () =>{
 
     const create = async (e) =>{
         e.preventDefault()
-        axios.post(URL,{title:title,description:description,category:category},)
-            /*{
+        axios.post(URL,{title:title,description:description,category:category},
+            {
             headers: {
                 'user-token': localStorage.getItem("apiData")
                 }
             }
-        ).then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
-    */
+        ).then(res => {console.log(res)})
+        //.then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
+    
     }
 
     return (
-        <div>
+        <div id = "create_note">
             <form onSubmit={create}>
                 <label>Title</label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}></input>
