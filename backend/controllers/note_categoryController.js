@@ -1,12 +1,12 @@
 import note_categoryModel from "../models/note_categoryModel.js"
-
+import db from '../db/db.js'
 
 
 //get all
 
 export const getAll = async (req,res) =>{
     try{
-        const note_category = await note_categoryModel.query(
+        const note_category = await db.query(
         "SELECT nc.id_note ,c.id ,c.title FROM `categories` as c join note_categories as nc ON nc.id_category = c.id WHERE nc.id_note="+req.params.id); 
         res.json(note_category)
       } catch(error){

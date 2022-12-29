@@ -11,6 +11,8 @@ import EditNote from '../main/EditNote';
 const URL ='http://localhost:8000/api/note/';
 const URL1 ='http://localhost:8000/api/note/archived/';
 const URL2 ='http://localhost:8000/api/note/unarchived/';
+const URL3 ='http://localhost:8000/api/note_category/';
+
 
 const Note = (props) =>{
     let result = props.updatedAt.slice(0, 10);
@@ -18,8 +20,20 @@ const Note = (props) =>{
     const status = props.status
     const [hidden, setHidden] = useState("hidden")
     const [hiddene, setHiddene] = useState("hidden")
+    const [cat, setCat] = useState([])
+
+const getCategories = async () =>{
+    const res = await axios.get(URL3+id,{
+        headers: {
+        'user-token': localStorage.getItem("apiData")
+        }
+      }
+    ).then((res) => {
+        setCat(res.data[0])
+        console.log(res)
+    })  
+}
     
-   
 const deleteNote = async () => {
     console.log(id)
    
@@ -42,6 +56,7 @@ const show = () => {
 
 const showEdit = () => {
     if (hiddene === "hidden"){
+        getCategories();
         setHiddene("visible")
     }else{
         setHiddene("hidden")
@@ -95,7 +110,7 @@ const archived = async () =>{
          </div>
           
             <div style={{visibility: hiddene}} class="centered">
-               <EditNote ti = {props.title} des= {props.description}/>
+               <EditNote cate={cat} ti = {props.title} des= {props.description}/>
             </div>
 
 

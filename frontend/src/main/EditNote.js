@@ -14,11 +14,9 @@ const EditNote = (props) =>{
     const [cat, setCat] =useState("")
     const [category,setCategory] = useState([])
 
+  
 
-
-
-
-const edit = async () =>{
+    const edit = async () =>{
 
 }
 
@@ -39,14 +37,24 @@ const addCategory = x =>{
                 <input type="text" value={description}   onChange={(e) => setDescription(e.target.value)}></input>
 
                 <div>
-               {category.map((mov,index) =>
+               {props.cate.map((mov,index) =>
 
                         <tr>
-                        <th className='Content' key={index}>{mov}</th>
+                        <th className='Content' key={index}>{mov.title}</th>
                         <th className='Content' key={index}><AiFillDelete/></th>
                         </tr>
+
+            
                )
                }
+             {category.map((mov,index) =>
+                <tr>
+                <th className='Content' key={index}>{mov.title}</th>
+                <th className='Content' key={index}><AiFillDelete/></th>
+                </tr>
+            )
+            }
+
             </div>
                 <input type="text" value={cat} onChange={(e) => setCat(e.target.value)}></input>
                 <div onClick={addCategory}>AGREGAR</div>
