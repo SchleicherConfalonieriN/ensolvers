@@ -1,8 +1,9 @@
 import express from 'express'
-import {getAll,getArchived, create, deletenote, updatenote,archived,unarchived} from '../controllers/noteController.js';
+import {getAll,getOne,getArchived, create, deletenote, updatenote,archived,unarchived} from '../controllers/noteController.js';
 const router = express.Router();
 
 router.get("/",getAll);
+router.get("/:id",getOne);
 router.get("/archived",getArchived);
 router.post("/create",create);
 router.delete("/:id",deletenote);

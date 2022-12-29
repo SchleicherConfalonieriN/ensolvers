@@ -1,9 +1,8 @@
 import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
-import {Link} from 'react-router-dom'
 import Note from '../components/Note'
-
+import Nav from '../components/Nav'
 const URL ='http://localhost:8000/api/note/';
 
 const Home = () =>{
@@ -26,36 +25,18 @@ const getNotes = async () =>{
 }
 
 
-const deleteNote = async (id) => {
-    await axios.delete(URL+id,{
-        headers: {
-        'user-token': localStorage.getItem("apiData")
-        }
-      }
-    
-    )
-    getNotes()
- }
 
 
 return (
-
-    <div className="ListContainer">
-    <h4>Listado de notes</h4>
-    <tr className='ListTitle'>
-    
-    <th>intento</th>
-    </tr>
-
+  <div>
+    <Nav/>
+    <div className="ListContainer">   
     {notes.map((mov,index) =>
-    <tr>
-    <th>
-      <Note/>
-      </th>
-    </tr>
+      <Note status = {mov.status} id={mov.id} description={mov.description} title={mov.title} updatedAt={mov.updatedAt} />
     )
     }
       </div>  
+ </div>
 )
 
 }

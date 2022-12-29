@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import {AiFillEdit,AiFillDelete} from 'react-icons/ai';
+import Nav from '../components/Nav'
 const URL ='http://localhost:8000/api/note/create';
 const URL1 ='http://localhost:8000/api/category/create';
 
@@ -30,7 +31,7 @@ const CreateNote = () =>{
                 }
             }
         ).then(res => {console.log(res)})
-        //.then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
+       
     
     }
 
@@ -39,12 +40,15 @@ const CreateNote = () =>{
     const addCategory = x =>{
        setCategory([...category,cat])
        setCat("")
-        //.then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
+      
     }
 
 
     return (
+        <div>
+        <Nav/>
         <div id = "create_note">
+           
             <form onSubmit={create}>
                 <label>Title</label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}></input>
@@ -68,6 +72,8 @@ const CreateNote = () =>{
                 <button>Register</button>
                 <button>Cancelar</button>
             </form>
+        </div>
+
         </div>
     )
 }
