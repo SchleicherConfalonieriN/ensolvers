@@ -70,19 +70,22 @@ const deleteCategory = (x) =>{
 
                 <div id = "square">
                {category.map((mov,index) =>
-                        <div >
+                        <div className="options" >
                         <div className='Content' key={index}>{mov}</div>
                         <div className='Content'onClick={() => deleteCategory(index)} ><AiFillDelete ></AiFillDelete>   </div>
                   
                        </div>
                )
                }
-                </div>
+                </div >
+                <div className="options">
                 <input type="text" value={cat} onChange={(e) => changeCat(e.target.value)}></input>
                 <div onClick={addCategory}>add</div>
-              
+                </div>
+              <div className="options">
                 <button>Register</button>
                 <button>Cancelar</button>
+            </div>
             </form>
         </div>
 

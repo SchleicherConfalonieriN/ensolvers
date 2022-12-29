@@ -63,6 +63,7 @@ const getCategories = async (idc) =>{
 return (
   <div>
     <Nav/>
+    <label > Tags  </label>
     <select onChange={(e) => setTag(e.target.value)}>
     <option value="">--------</option>
     {category.map((mov,index) =>

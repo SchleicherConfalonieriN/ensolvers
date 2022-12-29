@@ -78,9 +78,11 @@ const addCategory = x =>{
 
             </div>
                 <input type="text" value={cat} onChange={(e) => setCat(e.target.value)}></input>
+                <div className="options">
                 <button onClick={addCategory}>Add</button>
                 <Link to={`/home/archived`}> <div>Cancel</div></Link>
                 <button onClick={edit}>Save</button>
+                </div>
             </form>
         </div>
     )
