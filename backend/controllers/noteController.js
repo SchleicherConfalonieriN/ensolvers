@@ -10,7 +10,7 @@ export const getAll = async (req,res) =>{
             where:
             { 
                 id_user: req.userId,
-                status:0
+                status: req.params.status
             }
 
         }); 
@@ -34,24 +34,6 @@ export const getOne = async (req,res) =>{
         res.json ({message :error.message})
     }
 }
-
-export const getArchived = async (req,res) =>{
-    try{
-        const note = await noteModel.findAll({
-            where:
-            { 
-                id_user: req.userId,
-                status:1
-            }
-
-        }); 
-        res.json(note)
-      } catch(error){
-        res.json ({message :error.message})
-    }
-}
-
-
 
 
 //register
