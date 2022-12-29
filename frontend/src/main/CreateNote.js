@@ -21,7 +21,7 @@ const CreateNote = () =>{
                 'user-token': localStorage.getItem("apiData")
                 }
             }
-        ).then(res => {console.log(res)})
+        )
 
 
         axios.post(URL1,{category:category},
@@ -30,44 +30,56 @@ const CreateNote = () =>{
                 'user-token': localStorage.getItem("apiData")
                 }
             }
-        ).then(res => {console.log(res)})
+        )
        
-    
+        window.location.assign('http://localhost:3000/home');
     }
 
-
+const deleteCategory = (x) =>{
+    console.log(x)
+   setCategory(category.filter((_, index) => index !== x))
+}
     
     const addCategory = x =>{
        setCategory([...category,cat])
        setCat("")
-      
     }
 
+    const changeTitle = (e)  =>{
+        setTitle(e)
+    }
+    const changeDescription = (e)  =>{
+        setDescription(e)
+    }
+
+    const changeCat = (e) =>{
+        setCat(e)
+    }
 
     return (
         <div>
         <Nav/>
-        <div id = "create_note">
+        <div id = "create_note" className="centered">
            
             <form onSubmit={create}>
                 <label>Title</label>
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}></input>
+                <input type="text" value={title} onChange={(e) => changeTitle(e.target.value)}></input>
 
                 <label>Description</label>
-                <input type="text" valie={description}   onChange={(e) => setDescription(e.target.value)}></input>
+                <input type="text" valie={description}  onChange={(e) => changeDescription(e.target.value)}></input>
 
-                <div>
+                <div id = "square">
                {category.map((mov,index) =>
-
-                        <tr>
-                        <th className='Content' key={index}>{mov}</th>
-                        <th className='Content' key={index}><AiFillDelete/></th>
-                        </tr>
+                        <div >
+                        <div className='Content' key={index}>{mov}</div>
+                        <div className='Content'onClick={() => deleteCategory(index)} ><AiFillDelete ></AiFillDelete>   </div>
+                  
+                       </div>
                )
                }
-            </div>
-                <input type="text" value={cat} onChange={(e) => setCat(e.target.value)}></input>
-                <div onClick={addCategory}>AGREGAR</div>
+                </div>
+                <input type="text" value={cat} onChange={(e) => changeCat(e.target.value)}></input>
+                <div onClick={addCategory}>add</div>
               
                 <button>Register</button>
                 <button>Cancelar</button>

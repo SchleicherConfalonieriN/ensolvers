@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useEffect }  from 'react';
 import {useState} from 'react'
 import {AiFillEdit,AiFillDelete,AiOutlineDropbox} from 'react-icons/ai';
 import {BiBox} from 'react-icons/bi'
@@ -11,7 +11,7 @@ import EditNote from '../main/EditNote';
 const URL ='http://localhost:8000/api/note/';
 const URL1 ='http://localhost:8000/api/note/archived/';
 const URL2 ='http://localhost:8000/api/note/unarchived/';
-const URL3 ='http://localhost:8000/api/note_category/';
+
 
 
 const Note = (props) =>{
@@ -21,20 +21,39 @@ const Note = (props) =>{
     const status = props.status
     const [hidden, setHidden] = useState("hidden")
     const [hiddene, setHiddene] = useState("hidden")
-    const [cat, setCat] = useState([])
 
-const getCategories = async () =>{
-    const res = await axios.get(URL3+id,{
-        headers: {
-        'user-token': localStorage.getItem("apiData")
-        }
-      }
-    ).then((res) => {
-        setCat(res.data[0])
-        console.log(res)
-    })  
-}
+   // const [hidenote, setHidenote] = useState("hidden")
+    const [cat, setCat] = useState([])
+    const tag = props.tag
+    let hidenote = "visible";
+    let categories
     
+    /*
+    const handlepr = async () =>{
+        await props.cat.then((res) =>{console.log(res)})
+    }
+
+     handlepr();
+*/
+    
+
+
+const count = 0;
+console.log(categories)
+/*
+if(tag === "" ){hidenote = "visible"}
+else{
+    categories.forEach(element => {
+
+        if(element === tag){
+            count = +1
+        }
+    })
+
+    if(count > 0){hidenote = "visible"}
+}
+*/
+
 const deleteNote = async () => {
     console.log(id)
    
@@ -47,6 +66,8 @@ const deleteNote = async () => {
     show()
  }
 
+
+
 const show = () => {
     if (hidden === "hidden"){
         setHidden("visible")
@@ -57,13 +78,18 @@ const show = () => {
 
 const showEdit = () => {
     if (hiddene === "hidden"){
-        getCategories();
         setHiddene("visible")
     }else{
         setHiddene("hidden")
     }
 }
 
+
+if(tag!==""){
+    cat.forEach((element) => {
+        console.log(element)
+    })
+  }
 
 const archived = async () =>{
  if(status===0)
@@ -73,7 +99,7 @@ const archived = async () =>{
         'user-token': localStorage.getItem("apiData")
         }
     }
-    ).then(window.location.assign('http://localhost:3000/home/')); 
+    ).then(window.location.assign('http://localhost:3000/home')); 
     }
     else
     
@@ -88,10 +114,9 @@ const archived = async () =>{
 
 }
     return(
-        <div id = "Note">
+        <div id = "Note" style={{visibility: hidenote}}>
             <div className='container'>
                 <div className='ele1'><TfiNotepad size={40}/></div>
-                
                 <div className='ele2'>
                     <div className="title">
                     {props.title}

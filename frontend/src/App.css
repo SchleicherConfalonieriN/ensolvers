@@ -3,7 +3,7 @@
   align-items: center;
   align-self: center;
   margin: 0;
-
+  width: 100%;
 }
 body {
   text-align: center;
@@ -64,13 +64,14 @@ nav{
   width: 100%;
   position: sticky;
   display: flex;
-  background-color: red;
+  background-color:lightgrey;
   padding-left: 25%;
   padding-right: 25%;
+
 }
 .navO{
   width: 200px;
-  background-color: blue;
+ 
 }
 
 
@@ -91,4 +92,60 @@ a{
 position: fixed;
 left: 50%;
 margin-left: -37.5%;
+}
+
+.form_intro{
+width: 3000px;
+ border-color: black;
+ border-style: solid;
+ border-radius: 5px;
+ margin-top: 200px;
+ padding: 20px ;
+ width: fit-content;
+}
+
+#edit_note{
+  background-color: seashell;
+  width: fit-content;
+  position: absolute;
+  left: 65%;
+  text-align: center;
+  align-items: center;
+  padding: 100px;
+  height: fit-content;
+  border-color: black;
+  border-style: solid;
+  border-radius: 5px;
+
+
+}
+
+#create_note{
+  margin-top: 5%;
+  background-color: seashell;
+  width: fit-content;
+  position: absolute;
+  left: 65%;
+  text-align: center;
+  align-items: center;
+  padding: 100px;
+  height: fit-content;
+  border-color: black;
+  border-style: solid;
+  border-radius: 5px;
+
+}
+
+#square{
+  background-color: white;
+  border-style:ridge;
+  border-color: black;
+}
+
+
+button{
+  margin: 5px;
+}
+input{
+  margin: 10px;
 }

@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import axios from 'axios'
 import {AiFillEdit,AiFillDelete} from 'react-icons/ai';
-import {useParams, Link} from 'react-router-dom';
-import Nav from '../components/Nav'
+import {Link} from 'react-router-dom';
+
 const URL ='http://localhost:8000/api/note/';
 const URL1 ='http://localhost:8000/api/category/create';
 
@@ -18,7 +18,6 @@ const EditNote = (props) =>{
   const st=props.st
 
 
-console.log(id)
     const edit = async (e) =>{
         e.preventDefault()
     
@@ -38,35 +37,23 @@ console.log(id)
                        }
                      }
                    )
-              
-
-
-
-         /* category.map((element) => {
-              axios.post(URL1,{title:element},{
-                headers: {
-                   'user-token': localStorage.getItem("apiData")
+  
+                   const Location = window.location.pathname;
                    }
-                 }).then((res) =>{console.log(res)})
-        })*/
-        }
             
 
-
-
-  
 const addCategory = x =>{
     setCategory([...category,cat])
     setCat("")
     
  }
     return (
-        <div id = "edit_note">
+        <div id = "edit_note" className="centered">
            
             <form onSubmit={edit}>
                 <label>Title</label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}></input>
-
+                <br></br>  
                 <label>Description</label>
                 <input type="text" value={description}   onChange={(e) => setDescription(e.target.value)}></input>
 
@@ -91,10 +78,9 @@ const addCategory = x =>{
 
             </div>
                 <input type="text" value={cat} onChange={(e) => setCat(e.target.value)}></input>
-                <div onClick={addCategory}>AGREGAR</div>
-              
-                <button onClick={edit}>Register</button>
-                <button>Cancelar</button>
+                <button onClick={addCategory}>Add</button>
+                <Link to={`/home/archived`}> <div>Cancel</div></Link>
+                <button onClick={edit}>Save</button>
             </form>
         </div>
     )

@@ -21,8 +21,9 @@ const Login = () => {
     }
 
 
-    return(<div className="FormContainer">
-            <form onSubmit={log}>
+    return(
+    <div className="form_intro" >
+            <form  onSubmit={log}>
                     <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)} placeholder="Email"></input>
                      <br></br>  
                     <input type={"password"} value={password} onChange={(e)=> SetPassword(e.target.value)}placeholder="Password"></input>

@@ -23,9 +23,9 @@ const Register = () => {
 
 return (
 
-    <div className= "FormContainer">
+    <div className="form_intro"  >
         <h2>Register</h2>
-        <form onSubmit={create}>
+        <form  onSubmit={create}>
         
         <label>Name </label>  <br></br>  
         <input  type={"text"} value={name} onChange={(e)=> setName(e.target.value)}></input>
