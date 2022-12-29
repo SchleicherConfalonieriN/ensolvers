@@ -21,7 +21,7 @@ const Login = () => {
     }
 
 
-    return(
+    return(<div className="FormContainer">
             <form onSubmit={log}>
                     <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)} placeholder="Email"></input>
                      <br></br>  
@@ -29,6 +29,8 @@ const Login = () => {
                      <br></br>
                      <input type={"submit"}></input>
             </form>
+
+            </div>
           )
     }
 
