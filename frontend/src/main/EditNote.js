@@ -49,7 +49,7 @@ const addCategory = x =>{
                }
              {category.map((mov,index) =>
                 <tr>
-                <th className='Content' key={index}>{mov.title}</th>
+                <th className='Content' key={index}>{mov}</th>
                 <th className='Content' key={index}><AiFillDelete/></th>
                 </tr>
             )
@@ -59,7 +59,7 @@ const addCategory = x =>{
                 <input type="text" value={cat} onChange={(e) => setCat(e.target.value)}></input>
                 <div onClick={addCategory}>AGREGAR</div>
               
-                <button>Register</button>
+                <button onClick={edit}>Register</button>
                 <button>Cancelar</button>
             </form>
         </div>
