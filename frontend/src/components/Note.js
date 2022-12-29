@@ -17,6 +17,7 @@ const URL3 ='http://localhost:8000/api/note_category/';
 const Note = (props) =>{
     let result = props.updatedAt.slice(0, 10);
     const id = props.id
+    const user = props.user
     const status = props.status
     const [hidden, setHidden] = useState("hidden")
     const [hiddene, setHiddene] = useState("hidden")
@@ -110,7 +111,7 @@ const archived = async () =>{
          </div>
           
             <div style={{visibility: hiddene}} class="centered">
-               <EditNote cate={cat} ti = {props.title} des= {props.description}/>
+               <EditNote id = {id} id_user={user} st={status} cate={cat} ti = {props.title} des= {props.description}/>
             </div>
 
 

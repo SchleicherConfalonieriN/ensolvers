@@ -7,18 +7,52 @@ const URL ='http://localhost:8000/api/note/';
 const URL1 ='http://localhost:8000/api/category/create';
 
 const EditNote = (props) =>{
-    let {id} = useParams();
-    console.log(props.des)
+  const id = props.id
+
     const [title, setTitle] = useState(props.ti)
     const [description,setDescription] = useState(props.des)
     const [cat, setCat] =useState("")
     const [category,setCategory] = useState([])
 
-  
+  const user=props.id_user
+  const st=props.st
 
-    const edit = async () =>{
 
-}
+console.log(id)
+    const edit = async (e) =>{
+        e.preventDefault()
+    
+        await  axios.put(URL+id,{title:title,description:description,status:st,id_user:user},{
+                headers: {
+                   'user-token': localStorage.getItem("apiData")
+                   }
+                 }
+               ).then((res) =>{console.log(res)})
+                
+                 console.log(category)
+
+               
+                axios.post(URL1,{category:category},{
+                    headers: {
+                       'user-token': localStorage.getItem("apiData")
+                       }
+                     }
+                   )
+              
+
+
+
+         /* category.map((element) => {
+              axios.post(URL1,{title:element},{
+                headers: {
+                   'user-token': localStorage.getItem("apiData")
+                   }
+                 }).then((res) =>{console.log(res)})
+        })*/
+        }
+            
+
+
 
   
 const addCategory = x =>{

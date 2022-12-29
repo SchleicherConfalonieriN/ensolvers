@@ -88,8 +88,10 @@ export const deletenote = async (req, res) => {
 
 export const updatenote = async(req,res)=>{
         try{
-            await noteModel.update(req.body,{ 
-                where:{ id: req.params.id}}
+            console.log(req.params.id)
+            await noteModel.update(req.body,
+                { 
+                where:{ id:req.params.id}}
             )
             res.json("updated")
             } catch (error) {

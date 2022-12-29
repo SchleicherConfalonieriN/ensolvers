@@ -32,7 +32,7 @@ return (
     <Nav/>
     <div className="ListContainer">   
     {notes.map((mov,index) =>
-      <Note status = {mov.status} id={mov.id} description={mov.description} title={mov.title} updatedAt={mov.updatedAt} />
+      <Note status = {mov.status} id={mov.id}  user={mov.id_user} description={mov.description} title={mov.title} updatedAt={mov.updatedAt} />
     )
     }
       </div>  
