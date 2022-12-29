@@ -43,6 +43,7 @@ return (
         <input type={"submit"}></input>
      
         </form>
+        <Link to={'/'} className="btn"> <div> Cancel</div> </Link>
      </div>
     )
 }

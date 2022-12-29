@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 const URL ='http://localhost:8000/api/user/login';
 
 
@@ -27,10 +28,11 @@ const Login = () => {
                     <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)} placeholder="Email"></input>
                      <br></br>  
                     <input type={"password"} value={password} onChange={(e)=> SetPassword(e.target.value)}placeholder="Password"></input>
-                     <br></br>
+                   
                      <input type={"submit"}></input>
+                    
             </form>
-
+                <Link to={'/register'} className="btn"> <div>  Register</div> </Link>
             </div>
           )
     }

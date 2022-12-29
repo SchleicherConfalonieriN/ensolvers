@@ -141,10 +141,10 @@ const archived = async () =>{
 
 
 
-            <div  style={{visibility: hidden}} class="centered">
+            <div id="alert"  style={{visibility: hidden}} class="centered">
                 <h4>Are you sure, you want to delete this note</h4>
-                <div onClick={deleteNote}>Aceptar</div>
-                <div onClick={show}>Cancelar</div>
+                <div id = "b1" onClick={deleteNote}>Aceptar</div>
+                <div id = "b2" onClick={show}>Cancelar</div>
             </div>
            
         </div>
