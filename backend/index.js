@@ -1,28 +1,26 @@
 import express from 'express';
 import cors from 'cors';
-// db import
-import db from './db/db.js';
-import inidb from './db/inidb.js';
+import db from '/db/db.js'
 
-//routes import
+
+
+
+
+
 import apiRouter from './routes/api.js';
+
 
 const app = express()
 app.use(cors());
 app.use(express.json());
 app.use('/api',apiRouter);
 
-inidb
-
-
-/*
 try {
     await db.authenticate()
     console.log ('db is conected')
 } catch (error) {
     console.log(`db not working the error es:  ${error}`)
-}*/
-
+}
 
 
 app.get("/", (req,res)=>{
