@@ -20,6 +20,21 @@ export const getAll = async (req,res) =>{
     }
 }
 
+export const getOne = async (req,res) =>{
+    try{
+        const note = await noteModel.findAll({
+            where:
+            { 
+                id: req.params.id,
+            }
+
+        }); 
+        res.json(note)
+      } catch(error){
+        res.json ({message :error.message})
+    }
+}
+
 export const getArchived = async (req,res) =>{
     try{
         const note = await noteModel.findAll({

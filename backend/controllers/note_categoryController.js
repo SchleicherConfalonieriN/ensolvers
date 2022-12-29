@@ -6,10 +6,8 @@ import note_categoryModel from "../models/note_categoryModel.js"
 
 export const getAll = async (req,res) =>{
     try{
-        const note_category = await note_categoryModel.indAll({
-            where:{ 
-                id_note: req.id_note}
-        }); 
+        const note_category = await note_categoryModel.query(
+        "SELECT nc.id_note ,c.id ,c.title FROM `categories` as c join note_categories as nc ON nc.id_category = c.id WHERE nc.id_note="+req.params.id); 
         res.json(note_category)
       } catch(error){
         res.json ({message :error.message})
