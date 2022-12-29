@@ -18,6 +18,8 @@ const CreateToken = (user) => {
     return res ;
 }
 
+
+
 //register
 
 export const Register= async (req,res)=>{
@@ -63,3 +65,26 @@ export const updateuser = async(req,res)=>{
                 res.json( {message: error.message} )
         }
     }
+
+
+
+
+    
+    const first= async (req,res)=>{
+        try {
+            const { count, rows } =   await userModel.findAndCountAll();
+            console.log(count)
+            if (count === 0) {
+                console.log("entro")
+                await userModel.create({
+                    email:"n",
+                    password:1,
+                    name:"pruba",
+                    lastname:"prueba2"
+                })  
+            }
+        } catch (error) {
+            
+        }
+    }
+export default first

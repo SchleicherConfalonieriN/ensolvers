@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import db from './db/db.js'
-
+import first from './controllers/userController.js'
+import {Sequelize} from 'sequelize'
 
 
 
@@ -21,7 +22,7 @@ try {
 } catch (error) {
     console.log(`db not working the error es:  ${error}`)
 }
-
+first()
 
 app.get("/", (req,res)=>{
     res.send("ESTA CONECTADO")  
