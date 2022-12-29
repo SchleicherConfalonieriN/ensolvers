@@ -7,7 +7,7 @@ Requerimientos previos: Tener instalado:
 
 Pasos para inciar la aplicacion:
 
-1) Ya descargados e instalados Xampp es necesario abrirlo e iniciar el modulo de Apache y Mysql.
+1) Ya descargado e instalado Xampp es necesario abrirlo e iniciar el modulo de Apache y Mysql.
 
 2) Abrir dos terminarles que se encuentren ubicadas dentro de la carpeta clonada del repositorio  (\ensolvers>)
 
