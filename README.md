@@ -9,13 +9,13 @@ Pasos para inciar la aplicacion:
 
 1) Ya descargado e instalado Xampp es necesario abrirlo e iniciar el modulo de Apache y Mysql.
 
-3) Entrando a "http://localhost/phpmyadmin/index.php" y crear una base de datos de nombre ensolvers
+2) Entrando a "http://localhost/phpmyadmin/index.php" y crear una base de datos de nombre ensolvers
 
-2) Abrir dos terminarles que se encuentren ubicadas dentro de la carpeta clonada del repositorio  (\ensolvers>)
+3) Abrir dos terminarles que se encuentren ubicadas dentro de la carpeta clonada del repositorio  (\ensolvers>)
 
-3)En una de las terminarles ejercutar el comando  "cd /backend npm install node index.js"
+4)En una de las terminarles ejercutar el comando  "cd /backend npm install node index.js"
 
-4)En la otra terminal ejecutar el comando  "cd/frontend npm install npm start"
+5)En la otra terminal ejecutar el comando  "cd/frontend npm install npm start"
 
 
 
