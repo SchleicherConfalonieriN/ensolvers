@@ -13,9 +13,9 @@ Pasos para inciar la aplicacion:
 
 3) Abrir dos terminarles que se encuentren ubicadas dentro de la carpeta clonada del repositorio  (\ensolvers>)
 
-4)En una de las terminarles ejercutar el comando  "cd /backend npm install node index.js"
+4) En una de las terminarles ejercutar el comando  "cd /backend npm install node index.js"
 
-5)En la otra terminal ejecutar el comando  "cd/frontend npm install npm start"
+5) En la otra terminal ejecutar el comando  "cd/frontend npm install npm start"
 
 
 
